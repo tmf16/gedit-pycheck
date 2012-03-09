@@ -18,7 +18,7 @@ except:
 import gtk
 
 
-def msg(text):
+def msgbox(text):
     dlg = gtk.MessageDialog(None,
                             gtk.DIALOG_MODAL,
                             gtk.MESSAGE_WARNING,
@@ -154,27 +154,26 @@ class PyCheckInstance(object):
         doc = self._window.get_active_document()
 
         if not doc.get_language():
-            msg('not a python file.')
+            msgbox('not a python file.')
             return
 
         if doc.get_language().get_id().lower() != "python":
-            msg('not a python file.')
+            msgbox('not a python file.')
             return
 
         self._window.get_bottom_panel().set_property("visible", True)
         self._window.get_bottom_panel().activate_item(self._panel)
 
-        try:
-            self._action_group.set_sensitive(doc != None)
-            self._results[doc] = PyCheckListStore()
-            self._results[doc].clear()
-            self._panel.set_model(self._results[doc])
+        self._action_group.set_sensitive(doc != None)
+        self._results[doc] = PyCheckListStore()
+        self._results[doc].clear()
+        self._panel.set_model(self._results[doc])
 
+        try:
             self._check(doc)
         except:
             s = traceback.format_exc(sys.exc_info()[2])
-            msg(s)
-        return
+            msgbox(s)
 
     def _check(self, doc):
         uri = doc.get_uri()
