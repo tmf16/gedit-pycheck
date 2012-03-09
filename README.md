@@ -5,6 +5,7 @@ Gedit Python pep8 pyflakes
 Dependencies
 ------------
 pep8, pyflakes
+
     $ easy_install pep8
     $ easy_install pyflakes
 
