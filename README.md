@@ -11,21 +11,22 @@ pep8, pyflakes
 Installation
 ------------
 
-1. Download
-Download zip or tar source and unpack it.
-or
-git clone git://github.com/tmf16/gedit-pycheck.git
+### 1. Download
+Download zip or tar source and unpack it.  
+or  
+git clone git://github.com/tmf16/gedit-pycheck.git  
 
-2. Copy
+### 2. Copy
 Copy pycheck.gedit-plugin and the pycheck folder into ~/.gnome2/gedit/plugins/
+
     ~/.gnome2/gedit/plugins/pycheck
     ~/.gnome2/gedit/plugins/pycheck.gedit-plugin
 
-3. Gedit
-Restart Gedit.
+### 3. Gedit
+Restart Gedit.  
 Activate the plugin in gedit by choosing 'Edit > Preferences', select the 'Plugins' tab, and check the box next to 'PyCheck'.
 
 Usage
 -----
-1. Python file is opened
+1. Python file is opened  
 2. Gedit Menu: 'Tools > Python Check'
