@@ -4,9 +4,16 @@ import sys
 import traceback
 import tempfile
 
-import pep8
-import ast
-from pyflakes import checker
+install_flg = {'pep8': True, 'pyflakes': True}
+try:
+    import pep8
+except:
+    install_flg['pep8'] = False
+try:
+    import ast
+    from pyflakes import checker
+except:
+    install_flg['pyflakes'] = False
 
 import gtk
 
@@ -183,6 +190,9 @@ class PyCheckInstance(object):
         return
 
     def _check_pep8(self, path):
+        if not install_flg['pep8']:
+            return [{'line': 0, 'msg': 'no install pep8'}]
+
         pep8.process_options([''])
         t = tempfile.TemporaryFile()
         sys.stdout = t
@@ -205,6 +215,9 @@ class PyCheckInstance(object):
         return res
 
     def _check_pyflakes(self, path):
+        if not install_flg['pyflakes']:
+            return [{'line': 0, 'msg': 'no install pyflakes'}]
+
         arr = []
         with open(path, 'r') as f:
             for line in f:
