@@ -29,5 +29,5 @@ Activate the plugin in gedit by choosing 'Edit > Preferences', select the 'Plugi
 
 Usage
 -----
-1. Python file is opened  
-2. Gedit Menu: 'Tools > Python Check'
+1. Open a Python file.
+2. From Gedit Menu, select Tools > Python Check.
